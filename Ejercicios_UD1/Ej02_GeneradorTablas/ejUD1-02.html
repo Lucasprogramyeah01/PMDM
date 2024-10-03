@@ -18,15 +18,30 @@
     <button id="btn-add-col" class="btn btn-danger text-white">+ Añadir columna</button>
 
     <table id="table" class="table-bordered border-dark m-4">
-        <tr>
-            <td>Fila 1</td>
-        <tr>
-        <tr>
-            <td>Fila 1</td>
-        <tr>
+        <thead>
+            <tr id="filaBase">
+                <th>Columna 1</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <h4>Tremendo 1</h4>
+                    <button id="btn-delete-row" class="btn btn-primary text-white m-1" style="width: auto">-Eliminar fila</button>
+                    <button id="btn-delete-col" class="btn btn-danger text-white m-1" style="width: auto">-Eliminar columna</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h4>Tremendo 2</h4>
+                    <button id="btn-delete-row" class="btn btn-primary text-white m-1" style="width: auto">-Eliminar fila</button>
+                    <button id="btn-delete-col" class="btn btn-danger text-white m-1" style="width: auto">-Eliminar columna</button>
+                </td>
+            </tr>
+        </tbody>
     </table>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="ejemplo2.js"></script>
+    <script src="ejUD1-02.js"></script>
 </body>
 </html>
