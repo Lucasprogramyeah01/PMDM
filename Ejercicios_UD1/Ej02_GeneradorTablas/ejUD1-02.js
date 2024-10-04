@@ -3,17 +3,16 @@ $(document).ready(function(){
     let i = 1;
     let y = 1;
 
-    /*AGREGAR FILA
+    //AGREGAR FILA
     $(document).on("click", "#btn-add-row", function(){
         $("#table").each(function(){
             $(`#table tbody`).append(`<tr><td id="${y}"><h4>Fila ${i}</h4><button id='btn-delete-row' class='btn btn-primary text-white m-1' style='width: auto'>-Eliminar fila</button><button id='btn-delete-col' class='btn btn-danger text-white m-1' style='width: auto'>-Eliminar columna</button></td></tr>`);
-            //(`<tr> ${i} <asasdkbj>asdoasow ${y} asdkabsdk`)
             i++;
         })
-    })*/
+    })
 
-    //AGREGAR FILA
-    $(document).on("click", "#btn-add-row", function(){
+    //AGREGAR FILA v2 (Versión más completa pero no funciona)
+    /*$(document).on("click", "#btn-add-row", function(){
 
         let num = 0;
 
@@ -32,7 +31,7 @@ $(document).ready(function(){
 
         i++;
         num = 0;
-    })
+    })*/
 
     //ELIMINAR FILA
     $(document).on("click", "#btn-delete-row", function(){
@@ -47,11 +46,9 @@ $(document).ready(function(){
         })
     })
 
-    //ELIMINAR COLUMNA
+    //ELIMINAR COLUMNA (Tampoco funciona)
     $(document).on("click", "#btn-delete-col", function(){
-        $(this).parent().remove("#"+y+"");
-
-
+        $("#"+y).remove();
     })
 
 })
