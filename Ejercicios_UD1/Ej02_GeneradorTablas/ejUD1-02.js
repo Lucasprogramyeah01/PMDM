@@ -46,9 +46,9 @@ $(document).ready(function(){
         })
     })
 
-    //ELIMINAR COLUMNA (Tampoco funciona)
+    //ELIMINAR COLUMNA (Más bien un intento, sólo elimina la celda del botón que se haya pulsado)
     $(document).on("click", "#btn-delete-col", function(){
-        $("#"+y).remove();
+        $(this).parent().remove();
     })
 
 })
