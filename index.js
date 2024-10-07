@@ -7,7 +7,7 @@ $(document).ready(function(){
     $("#page-title").html("Título Hola Mundo");
 
     //SELECTOR DE CLASE (.)
-    $(".red").attr("style", "color:red");
+    $(".red", "h1").attr("style", "color:red");
 
 //--------------------------------------------------------------------------------------------
 
