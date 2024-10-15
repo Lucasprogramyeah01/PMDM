@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './car-component.component.css'
 })
 export class CarComponentComponent {
-
+  nombre = 'COCHAZO';
+  precio = 360;
 }
