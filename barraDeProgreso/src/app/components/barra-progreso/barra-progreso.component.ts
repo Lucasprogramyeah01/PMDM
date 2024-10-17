@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class BarraProgresoComponent {
 
-  @Input() porcentaje = 12;
+  @Input() porcentaje = 80;
 
   getProgressColor(): string {
     if(this.porcentaje <= 25){

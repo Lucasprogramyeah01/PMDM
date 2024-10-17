@@ -1,3 +1,7 @@
-<input type="number" [(ngModel)]="valorProgreso" />
+<input class="m-3" type="number" min="0" max="100" [(ngModel)]="valorProgreso" />
 
-<app-barra-progreso></app-barra-progreso>
+<div class="row mb-4">
+    <div class="col-12">
+      <app-barra-progreso [porcentaje]="valorProgreso"></app-barra-progreso>
+    </div>
+  </div>
