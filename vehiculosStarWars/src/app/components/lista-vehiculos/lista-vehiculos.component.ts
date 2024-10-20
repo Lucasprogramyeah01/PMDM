@@ -14,8 +14,8 @@ export class ListaVehiculosComponent implements OnInit{
   constructor(private listaService: ListaVehiculosService){}
 
   ngOnInit(): void {
-    this.listaService.getListaVehiculos.subscribe(respuesta => {
-      this.listadoCasas = respuesta;
+    this.listaService.getListaVehiculos().subscribe((respuesta) => {
+      this.listadoVehiculos = respuesta;
     });
   }
 
