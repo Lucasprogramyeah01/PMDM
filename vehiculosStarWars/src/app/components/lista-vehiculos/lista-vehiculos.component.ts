@@ -11,12 +11,29 @@ export class ListaVehiculosComponent implements OnInit{
 
   listadoVehiculos: Vehiculo[] = [];
 
+  imagen : string = 'https://starwars-visualguide.com/assets/img/vehicles/'
+
   constructor(private listaService: ListaVehiculosService){}
 
   ngOnInit(): void {
-    this.listaService.getListaVehiculos().subscribe((respuesta) => {
-      this.listadoVehiculos = respuesta;
+    this.listaService.getListaVehiculos().subscribe(respuesta => {
+      this.listadoVehiculos = respuesta.results;
     });
   }
+
+  getImagen(url:string): string {
+    let id = url.split("/")[5];
+
+    return this.imagen+'/'+id+'.jpg';
+  }
+
+  /*
+  SE TENDRÍA QUE HACER ASÍ
+
+  ngOnInit(): void {
+    this.listaService.getListaVehiculos().subscribe(respuesta => {
+      this.listadoVehiculos = respuesta.results;
+    });
+  }*/
 
 }

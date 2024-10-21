@@ -1,3 +1,10 @@
+export interface VehiculoListResponse {
+    count: number
+    next: string
+    previous: any
+    results: Vehiculo[]
+}
+
 export interface Vehiculo {
     cargo_capacity: string
     consumables: string
