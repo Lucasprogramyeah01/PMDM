@@ -1,47 +1,49 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-<div class="row m-4">
-    @for(vehiculo of listadoVehiculos; track vehiculo){
-        <div class="col-md-3 col-12 p-2">
-            <div class="card rounded-4 rounded-top-0" style="width: 22rem;">
-              <img [src]="getImagen(vehiculo.url)" class="card-img-top" [alt]="vehiculo.name">
-              <div class="card-body rounded-4 rounded-top-0 bg-dark text-light">
-                <h5 class="text-center text-uppercase fw-bold fst-italic">{{ vehiculo.name }}</h5>
-                <p class="m-0"><span class="fw-bold text-warning"><i class="bi bi-coin"></i> 
-                  Coste:</span> {{ vehiculo.cost_in_credits != 'unknown' ? vehiculo.cost_in_credits : '???' }} Créditos.<br />
-                </p>
-                <p class="m-0"><span class="text-warning fw-bold"><i class="bi bi-gear-fill"></i> 
-                  Modelo:</span> {{ vehiculo.model }}.
-                </p>
-                <p class="m-0"><span class="text-warning fw-bold"><i class="bi bi-person-fill-gear"></i>
-                  Fabricante:</span> {{ vehiculo.manufacturer }}.
-                </p>
-                <hr>
-                <p class="m-0"><span class="text-warning fw-bold"><i class="bi bi-person-fill"></i>
-                  Capacidad de carga:</span> 
-                  {{ vehiculo.cargo_capacity != 'none' ? vehiculo.cargo_capacity : '0' }} personas.
-                </p>
-                <p class="m-0"><span class="text-warning fw-bold"><i class="bi bi-tag-fill"></i>
-                  Clase:</span> {{ vehiculo.vehicle_class }}.
-                </p>
-                <hr>
-                <div class="d-flex justify-content-around">
-                  <p class="m-0"><span class="text-warning fw-bold"><i class="bi bi-person-circle"></i>
-                    Tripulantes:</span> {{ vehiculo.crew }}
+<div class="container-fluid">
+  <div class="row mx-5 d-flex justify-content-around">
+      @for(vehiculo of listadoVehiculos; track vehiculo){
+          <div class="col-md-3 col-12 p-2 my-3">
+              <div class="card rounded-4 h-100" style="width: 22rem;">
+                <img [src]="getImagen(vehiculo.url)" class="card-img-top rounded-top-4" [alt]="vehiculo.name">
+                <div class="card-body rounded-4 rounded-top-0 bg-dark text-light">
+                  <h5 class="text-center text-uppercase fw-bold fst-italic">{{ vehiculo.name }}</h5>
+                  <p class="m-0"><span class="fw-bold text-warning"><i class="bi bi-coin"></i> 
+                    Coste:</span> {{ vehiculo.cost_in_credits != 'unknown' ? vehiculo.cost_in_credits : '???' }} Créditos.<br />
                   </p>
-                  <p class="m-0"><span class="text-warning fw-bold"><i class="bi bi-person-bounding-box"></i>
-                    Pasajeros:</span> {{ vehiculo.passengers }}
+                  <p class="m-0"><span class="text-warning fw-bold"><i class="bi bi-gear-fill"></i> 
+                    Modelo:</span> {{ vehiculo.model }}.
                   </p>
+                  <p class="m-0"><span class="text-warning fw-bold"><i class="bi bi-person-fill-gear"></i>
+                    Fabricante:</span> {{ vehiculo.manufacturer }}.
+                  </p>
+                  <hr>
+                  <p class="m-0"><span class="text-warning fw-bold"><i class="bi bi-person-fill"></i>
+                    Capacidad de carga:</span> 
+                    {{ vehiculo.cargo_capacity != 'none' ? vehiculo.cargo_capacity : '0' }} personas.
+                  </p>
+                  <p class="m-0"><span class="text-warning fw-bold"><i class="bi bi-tag-fill"></i>
+                    Clase:</span> {{ vehiculo.vehicle_class }}.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-around">
+                    <p class="m-0"><span class="text-warning fw-bold"><i class="bi bi-person-circle"></i>
+                      Tripulantes:</span> {{ vehiculo.crew }}
+                    </p>
+                    <p class="m-0"><span class="text-warning fw-bold"><i class="bi bi-person-bounding-box"></i>
+                      Pasajeros:</span> {{ vehiculo.passengers }}
+                    </p>
+                  </div>
+                  <hr>
+                  <p class="m-0"><span class="text-warning fw-bold"><i class="bi bi-speedometer"></i>
+                    Max velocidad atmosférica:</span> {{ vehiculo.max_atmosphering_speed }} km/h.
+                  </p>
+                  <p class="m-0"><span class="text-warning fw-bold"><i class="bi bi-capsule"></i>
+                    Consumibles:</span> 
+                    {{ vehiculo.consumables != ('unknown' || 'none') ? vehiculo.consumables : '???' }}.</p>
                 </div>
-                <hr>
-                <p class="m-0"><span class="text-warning fw-bold"><i class="bi bi-speedometer"></i>
-                  Max velocidad atmosférica:</span> {{ vehiculo.max_atmosphering_speed }} km/h.
-                </p>
-                <p class="m-0"><span class="text-warning fw-bold"><i class="bi bi-capsule"></i>
-                  Consumibles:</span> 
-                  {{ vehiculo.consumables != ('unknown' || 'none') ? vehiculo.consumables : '???' }}.</p>
               </div>
-            </div>
-        </div>
-    }
+          </div>
+      }
+  </div>
 </div>

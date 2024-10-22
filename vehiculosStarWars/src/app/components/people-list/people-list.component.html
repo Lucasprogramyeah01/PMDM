@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<div class="container-fluid">
+  <div class="row mx-5 d-flex justify-content-around">
+      @for(character of peopleList; track character){
+          <div class="col-md-3 col-12 p-2 my-3">
+              <div class="card rounded-4 h-100" style="width: 20rem;">
+                <img [src]="getCharacterImage(character.url)" class="card-img-top rounded-top-4" [alt]="character.name">
+                <div class="card-body rounded-4 rounded-top-0 bg-dark text-light">
+                  <h5 class="text-center text-uppercase fw-bold fst-italic">{{ character.name }}</h5>
+                  <p class="m-0 text-capitalize"><span class="fw-bold text-warning"><i class="bi bi-person-fill"></i> 
+                    Año de nacimiento:</span> {{ character.birth_year }}.<br />
+                  </p>
+                  <p class="m-0 mt-2"><span class="text-light">
+                    @if(character.gender == 'male'){
+                        <span class="py-1 px-3 border border-2 rounded-5 text-capitalize" style="background-color: blue;">{{ character.gender }}&nbsp;</span>
+                    }@else if(character.gender == 'female'){
+                        <span class="py-1 px-3 border border-2 rounded-5 text-capitalize" style="background-color: red;">{{ character.gender }}</span>
+                    }@else if(character.gender == 'n/a'){
+                        <span class="py-1 px-3 border border-2 rounded-5 text-capitalize" style="background-color: rgb(110, 110, 110);">{{ character.gender }}</span>
+                    }
+                    </span>
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-around">
+                    <p class="m-0"><span class="text-warning fw-bold"><i class="bi bi-box-seam-fill"></i>
+                      Peso:</span> {{ character.mass }} kg.
+                    </p>
+                    <p class="m-0"><span class="text-warning fw-bold"><i class="bi bi-rulers"></i>
+                      Altura:</span> {{ character.height }} cm.
+                    </p>
+                  </div>
+                </div>
+              </div>
+          </div>
+      }
+  </div>
+</div>
