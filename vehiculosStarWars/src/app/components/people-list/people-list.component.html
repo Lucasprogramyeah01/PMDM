@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 <div class="container-fluid">
-  <div class="row mx-5 d-flex justify-content-around">
+  <div class="row mx-5 d-flex justify-content-center">
       @for(character of peopleList; track character){
           <div class="col-md-3 col-12 p-2 my-3">
               <div class="card rounded-4 h-100" style="width: 20rem;">
@@ -13,11 +13,11 @@
                   </p>
                   <p class="m-0 mt-2"><span class="text-light">
                     @if(character.gender == 'male'){
-                        <span class="py-1 px-3 border border-2 rounded-5 text-capitalize" style="background-color: blue;">{{ character.gender }}&nbsp;</span>
+                        <span class="py-1 px-3 border border-2 rounded-5 text-capitalize" style="background-color: blue;">{{ character.gender }}&nbsp;<i class="bi bi-gender-male"></i></span>
                     }@else if(character.gender == 'female'){
-                        <span class="py-1 px-3 border border-2 rounded-5 text-capitalize" style="background-color: red;">{{ character.gender }}</span>
+                        <span class="py-1 px-3 border border-2 rounded-5 text-capitalize" style="background-color: rgb(255, 0, 123);">{{ character.gender }}&nbsp;<i class="bi bi-gender-female"></i></span>
                     }@else if(character.gender == 'n/a'){
-                        <span class="py-1 px-3 border border-2 rounded-5 text-capitalize" style="background-color: rgb(110, 110, 110);">{{ character.gender }}</span>
+                        <span class="py-1 px-3 border border-2 rounded-5 text-capitalize" style="background-color: rgb(110, 110, 110);">{{ character.gender }}&nbsp;<i class="bi bi-gender-neuter"></i></span>
                     }
                     </span>
                   </p>
