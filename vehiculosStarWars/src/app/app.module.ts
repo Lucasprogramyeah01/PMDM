@@ -10,6 +10,8 @@ import { provideHttpClient } from '@angular/common/http';
 import { PeopleListComponent } from './components/people-list/people-list.component';
 import { MenuComponent } from './shared/menu/menu.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
+import { PeopleItemComponent } from './components/people-item/people-item.component';
+import { PeopleDetailComponent } from './components/people-detail/people-detail.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.co
     ListaVehiculosComponent,
     PeopleListComponent,
     MenuComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PeopleItemComponent,
+    PeopleDetailComponent
   ],
   imports: [
     BrowserModule,
