@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PokemonBattleService } from '../../services/pokemon-battle.service';
 import { Pokemon } from '../../models/pokemon-list.interfaces';
 
@@ -9,6 +9,9 @@ import { Pokemon } from '../../models/pokemon-list.interfaces';
 })
 export class PokemonBattleComponent implements OnInit{
   
+  pokemonId1: number | undefined = 1;
+  pokemonId2: number | undefined = 4;
+
   listaPokemon: Pokemon[] = [];
 
   constructor(private pokemonBattleService: PokemonBattleService){}
@@ -17,6 +20,9 @@ export class PokemonBattleComponent implements OnInit{
     this.pokemonBattleService.getPokemonList().subscribe(respuesta => {
       this.listaPokemon = respuesta.results;
     });
+  }
+
+  atacarOponente(IdPokeAtk: number | undefined, IdPokeDef: number | undefined){
   }
 
 }

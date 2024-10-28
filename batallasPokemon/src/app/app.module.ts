@@ -9,6 +9,7 @@ import { PokemonBattleComponent } from './components/pokemon-battle/pokemon-batt
 import { PokemonComponent } from './components/pokemon/pokemon.component';
 import { provideHttpClient } from '@angular/common/http';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PokemonListComponent } from './components/pokemon-list/pokemon-list.com
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [
     provideAnimationsAsync(),

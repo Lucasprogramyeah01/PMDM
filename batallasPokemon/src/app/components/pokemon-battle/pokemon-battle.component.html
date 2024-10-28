@@ -1,12 +1,29 @@
-<div class="container-fluid mt-3">
-    <div class="row">
-        <div class="input-group mb-3 w-25">
-            <input type="number" class="form-control border-dark" placeholder="Introduzca el ID del pokémon 1" min="1" max="1025">
-            <button class="btn btn-danger" type="button" id="button-addon2">Buscar Pokémon 1</button>
+<div class="container-fluid mt-4">
+    <div class="row d-flex justify-content-center">
+        <div class="input-group mb-3 me-5 pe-5" style="width: 20%;">
+            <input type="number" class="form-control border-dark" placeholder="Introduzca el ID del pokémon 1" 
+                [(ngModel)]="pokemonId1" min="1" max="1025">
+            <button class="btn btn-danger" type="button" id="button-addon2">Pokémon 1</button>
         </div>
-        <div class="input-group mb-3 w-25">
-            <input type="number" class="form-control border-dark" placeholder="Introduzca el ID del pokémon 2" min="1" max="1025">
-            <button class="btn btn-primary" type="button" id="button-addon2">Buscar Pokémon 2</button>
+        <div class="input-group mb-3 ms-5 ps-5" style="width: 20%;">
+            <input type="number" class="form-control border-dark" placeholder="Introduzca el ID del pokémon 2"
+                [(ngModel)]="pokemonId2" min="1" max="1025">
+            <button class="btn btn-primary" type="button" id="button-addon2">Pokémon 2</button>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt-1">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="w-auto">
+            <app-pokemon [idObtenido]="pokemonId1"></app-pokemon>
+            <button type="button" class="btn btn-danger w-50" (click)="atacarOponente(pokemonId1, pokemonId2)">
+                <h5 class="tipografia fw-bold m-0">ATACAR</h5>
+            </button>
+        </div>
+        <h1 class="w-auto mx-4 tipografia fw-bold">VS</h1>
+        <div class="w-auto">
+            <app-pokemon [idObtenido]="pokemonId2"></app-pokemon>
         </div>
     </div>
 </div>
