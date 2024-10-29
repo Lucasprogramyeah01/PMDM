@@ -1,0 +1,11 @@
+<div class="container-fluid mt-1">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="w-auto">
+            <app-pokemon [pokemonId]="1" [life]="lifePokemon1" [isMyTurn]="pokemonTurn == 1" (onAttackDone)="applyDamage($event)"></app-pokemon>
+        </div>
+        <h1 class="w-auto mx-4 tipografia fw-bold">VS</h1>
+        <div class="w-auto">
+            <app-pokemon [pokemonId]="2" [life]="lifePokemon2" [isMyTurn]="pokemonTurn == 2" (onAttackDone)="applyDamage($event)"></app-pokemon>
+        </div>
+    </div>
+</div>
