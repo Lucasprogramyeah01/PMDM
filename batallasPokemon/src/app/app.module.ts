@@ -8,25 +8,26 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PokemonBattleComponent } from './components/pokemon-battle/pokemon-battle.component';
 import { PokemonComponent } from './components/pokemon/pokemon.component';
 import { provideHttpClient } from '@angular/common/http';
-import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { FormsModule } from '@angular/forms';
+import { LottieComponent, provideLottieOptions } from 'ngx-lottie';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokemonBattleComponent,
-    PokemonComponent,
-    PokemonListComponent
+    PokemonComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    LottieComponent,
     FormsModule
   ],
   providers: [
     provideAnimationsAsync(),
-    provideHttpClient()
+    provideHttpClient(),
+    provideLottieOptions({player: () => import('lottie-web')}),
   ],
   bootstrap: [AppComponent]
 })

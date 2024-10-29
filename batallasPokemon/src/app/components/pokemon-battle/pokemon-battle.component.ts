@@ -1,28 +1,39 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PokemonBattleService } from '../../services/pokemon-battle.service';
-import { Pokemon } from '../../models/pokemon-list.interfaces';
 
 @Component({
   selector: 'app-pokemon-battle',
   templateUrl: './pokemon-battle.component.html',
   styleUrl: './pokemon-battle.component.css'
 })
-export class PokemonBattleComponent implements OnInit{
+export class PokemonBattleComponent{
   
-  pokemonId1: number | undefined = 1;
-  pokemonId2: number | undefined = 4;
+  // TURN possible values: 1, 2
+  pokemonTurn: number = 1;
+  pokemonPlayer1Id: number = 1;
+  pokemonPlayer2Id: number = 4;
+  lifePokemon1: number = 100;
+  lifePokemon2: number = 100;
 
-  listaPokemon: Pokemon[] = [];
-
-  constructor(private pokemonBattleService: PokemonBattleService){}
-
-  ngOnInit(): void {
-    this.pokemonBattleService.getPokemonList().subscribe(respuesta => {
-      this.listaPokemon = respuesta.results;
-    });
+  getPokemonId1(id: number){
+    this.pokemonPlayer1Id = id;
+    return this.pokemonPlayer1Id;
   }
 
-  atacarOponente(IdPokeAtk: number | undefined, IdPokeDef: number | undefined){
+  getPokemonId2(id: number){
+    this.pokemonPlayer2Id = id;
+    return this.pokemonPlayer2Id;
   }
 
+  applyDamage(damage: number) {
+    if (this.pokemonTurn == 1) {
+      // Apply damage to Pokemon 2
+      this.lifePokemon2 -= damage;
+      this.pokemonTurn = 2;
+    } else {
+      // Apply damage to Pokemon 1
+      this.lifePokemon1 -= damage;
+      this.pokemonTurn = 1;
+    }
+  }
+  
 }
