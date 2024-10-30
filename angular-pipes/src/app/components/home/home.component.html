@@ -1,0 +1,24 @@
+<h1>Sin pipe: {{ titulo }}</h1>
+<h1>Con pipe (Lowercase): {{ titulo | lowercase }}</h1>
+<h1>Con pipe (Titlecase): {{ titulo | titlecase }}</h1>
+<h1>Con pipe (Uppercase): {{ titulo | uppercase }}</h1>
+
+<hr/>
+
+<h1>Pipe currency standard: {{ precio | currency: 'EUR' }}</h1>
+<!--Para elgir la divisa que uno desea se debe utilizar el "currency code" de la moneda. Para el Euro es EUR.-->
+
+<hr/>
+
+<h1>Date pipe: {{ createdAt | date: 'dd/MM/YYYY' }}</h1>
+<!--Se les puede aplicar un único formato a todas las fechas de la aplicación con una sentencia en el array de 
+"providers" del app.module.ts-->
+
+<hr/>
+
+<h1>Date pipe: {{ porcentajeDeVida | percent }}</h1>
+
+<hr/>
+
+<h1>Pipe currency standard: {{ precio | customEur }}</h1>
+<!--También se pueden crear pipes propias, customEur es una pipe creada por mí para este proyecto.-->
