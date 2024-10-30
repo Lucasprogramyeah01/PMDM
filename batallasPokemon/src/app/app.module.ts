@@ -10,14 +10,14 @@ import { PokemonComponent } from './components/pokemon/pokemon.component';
 import { provideHttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LottieComponent, provideLottieOptions } from 'ngx-lottie';
-import { ImgPokemonPipe } from './pipes/img-pokemon.pipe';
+import { changeNamePipe } from './pipes/changeName.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokemonBattleComponent,
     PokemonComponent,
-    ImgPokemonPipe
+    changeNamePipe
   ],
   imports: [
     BrowserModule,
