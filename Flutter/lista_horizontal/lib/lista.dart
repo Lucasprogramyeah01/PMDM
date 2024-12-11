@@ -6,21 +6,17 @@ class ListaPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Color(0xFFDFDFE0),
-        width: double.infinity,
-
-        child: ListView(
-          scrollDirection: Axis.horizontal,
-
-          children: [
-            Container(
+        body: Container(
+      color: Color(0xFFDFDFE0),
+      width: double.infinity,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          Container(
               //Image.network('')
-            )
-          ],
-        ),
-
-      )
-    );
+              )
+        ],
+      ),
+    ));
   }
 }
