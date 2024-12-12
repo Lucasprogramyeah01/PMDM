@@ -22,20 +22,31 @@ class _MyWidgetState extends State<PeopleScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('People'),
+        title: Image.network('https://logodownload.org/wp-content/uploads/2015/12/star-wars-logo-3-1.png', width: 100),
+        backgroundColor: Colors.black,
       ),
-      body: FutureBuilder<PeopleResponse>(
-        future: peopleResponse,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return _buildPeopleList(snapshot.data!);
-          } else if (snapshot.hasError) {
-            return Text('${snapshot.error}');
-          }
 
-          // By default, show a loading spinner.
-          return const CircularProgressIndicator();
-        },
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage('https://e0.pxfuel.com/wallpapers/870/330/desktop-wallpaper-star-background-aesthetic-star-wars.jpg'),
+            fit: BoxFit.cover
+            )
+        ),
+
+        child: FutureBuilder<PeopleResponse>(
+          future: peopleResponse,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return _buildPeopleList(snapshot.data!);
+            } else if (snapshot.hasError) {
+              return Text('${snapshot.error}');
+            }
+        
+            // By default, show a loading spinner.
+            return const CircularProgressIndicator();
+          },
+        ),
       ),
     );
   }
@@ -53,9 +64,24 @@ class _MyWidgetState extends State<PeopleScreen> {
   
   Widget _buildPeopleList(PeopleResponse peopleResponse) {
     return ListView.builder(
+      scrollDirection: Axis.horizontal,
+
       itemCount: peopleResponse.results!.length,
       itemBuilder: (context, index){
-        return Text(peopleResponse.results![index].name!);
+
+        return Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20)
+          ),
+          child:
+                /*height: 700,
+                margin: EdgeInsets.only(left: 10, right: 10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                ),*/
+                Image.network('https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg', width: 50, height: 200,)
+        );
+        /*return Text(peopleResponse.results![index].name!);*/
       },
     );
   }
