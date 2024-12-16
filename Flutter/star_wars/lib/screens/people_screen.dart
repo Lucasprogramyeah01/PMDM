@@ -133,37 +133,5 @@ class _MyWidgetState extends State<PeopleScreen> {
         ],
       )
   );
-
-
-
-  /*Widget _buildPeopleList(PeopleResponse peopleResponse) {
-    return SizedBox(
-      width: double.infinity,
-      child: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3, // number of items in each row
-          mainAxisSpacing: 8.0, // spacing between rows
-          crossAxisSpacing: 8.0, // spacing between columns
-        ),
-      
-        itemCount: peopleResponse.results!.length,
-        itemBuilder: (context, index){
-      
-          return Container(
-            width: 10,
-            height: 300,
-            color: Colors.red,
-            margin: const EdgeInsets.only(top: 10, bottom: 10),
-            child: Image.network('https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg', width: 10, height: 200)
-          );
-                
-              /*decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-                color: Colors.redAccent
-              ),*/
-        }
-      ),
-    );
-          return Text(peopleResponse.results![index].name!);*/
   }
 }

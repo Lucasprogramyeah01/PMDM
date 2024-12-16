@@ -30,7 +30,7 @@ class _PeopleDetailScreenState extends State<PeopleDetailScreen> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        padding: const EdgeInsets.only(top: 15.0, bottom: 15.0),
+        padding: const EdgeInsets.only(top: 15.0),
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: NetworkImage('https://e0.pxfuel.com/wallpapers/870/330/desktop-wallpaper-star-background-aesthetic-star-wars.jpg'),
@@ -39,6 +39,7 @@ class _PeopleDetailScreenState extends State<PeopleDetailScreen> {
         ),
 
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           
@@ -67,6 +68,7 @@ class _PeopleDetailScreenState extends State<PeopleDetailScreen> {
             Container(
               margin: const EdgeInsets.only(top: 25.0, right: 40.0),
               child: Column(
+                mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
 
