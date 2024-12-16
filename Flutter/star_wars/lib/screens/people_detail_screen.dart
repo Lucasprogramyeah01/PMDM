@@ -38,14 +38,17 @@ class _PeopleDetailScreenState extends State<PeopleDetailScreen> {
             )
         ),
 
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
+        child: ListView(
+          scrollDirection: Axis.vertical,
           
-          children: [
+          children:[
 
-            Container(
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
               margin: const EdgeInsets.only(left: 30.0, right: 30.0),
               decoration: BoxDecoration(
                 border: Border.all(
@@ -228,7 +231,8 @@ class _PeopleDetailScreenState extends State<PeopleDetailScreen> {
                 
               ),
             ),
-
+              ],
+            )
           ],
 
         ),
