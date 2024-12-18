@@ -57,7 +57,7 @@ class _MoviesScreenState extends State<HomeScreen> {
             },
           ),
 
-          /*FutureBuilder<PopularSerieResponse>(
+          FutureBuilder<PopularSerieResponse>(
             future: popularSerieResponse,
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
@@ -75,7 +75,7 @@ class _MoviesScreenState extends State<HomeScreen> {
                 return const Center(child: Text('No hay datos disponibles.'));
               }
             },
-          ),*/
+          ),
         ]
       ),
       )
@@ -96,13 +96,50 @@ class _MoviesScreenState extends State<HomeScreen> {
   }
 
   Widget _buildPopularMoviesList(PopularMovieResponse popularMovieResponse) {
-    return ListView.builder(
-      scrollDirection: Axis.horizontal,
-      shrinkWrap: true,
-        itemCount: popularMovieResponse.listaPeliculas!.length,
-        itemBuilder: (context, index) {
-          return const Text("Hola");
-    });
+    return Expanded(
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        shrinkWrap: true,
+          itemCount: popularMovieResponse.listaPeliculas!.length,
+          itemBuilder: (context, index) {
+            return //const Text("Hola");
+            Column(
+              children: [
+                Container(
+                  height: 250,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: const Color.fromARGB(255, 255, 135, 163),
+                      width: 4,  
+                    ),
+                    borderRadius: BorderRadius.circular(12)
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.network('https://image.tmdb.org/t/p/original/${popularMovieResponse.listaPeliculas![index].posterPath}',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+
+                Container(
+                  width: 200,
+                  padding: const EdgeInsets.only(top: 7.0),
+                  child: Text("${popularMovieResponse.listaPeliculas![index].title}", 
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                  textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600
+                    ),
+                  )
+                )
+              ],
+            );
+      }),
+    );
   }
 
   //SERIES -------------------------------------------------------------------------------------------------------------------------
@@ -118,11 +155,15 @@ class _MoviesScreenState extends State<HomeScreen> {
   }
 
   Widget _buildPopularSeriesList(PopularSerieResponse popularSerieResponse) {
-    return ListView.builder(
-        itemCount: popularSerieResponse.listaSeries!.length,
-        itemBuilder: (context, index) {
-          return const Text("Hola");
-    });
+    return Expanded(
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        shrinkWrap: true,
+          itemCount: popularSerieResponse.listaSeries!.length,
+          itemBuilder: (context, index) {
+            return const Text("Dominasao");
+      }),
+    );
   }
 
 }
