@@ -10,10 +10,10 @@ class MoviesScreen extends StatefulWidget {
   const MoviesScreen({super.key});
 
   @override
-  State<MoviesScreen> createState() => _MyWidgetState();
+  State<MoviesScreen> createState() => _MoviesScreenState();
 }
 
-class _MyWidgetState extends State<MoviesScreen> {
+class _MoviesScreenState extends State<MoviesScreen> {
 
   late Future<PopularMovieResponse> popularMoviesResponse;
 
@@ -28,7 +28,7 @@ class _MyWidgetState extends State<MoviesScreen> {
     return Scaffold(
       body: Container(
         width: double.infinity,
-        color: const Color.fromARGB(255, 0, 110, 255),
+        color: const Color.fromARGB(255, 255, 0, 68),
 
         child: FutureBuilder<PopularMovieResponse>(
           future: popularMoviesResponse,
@@ -43,38 +43,12 @@ class _MyWidgetState extends State<MoviesScreen> {
                 ),
               );
             } else if (snapshot.hasData) {
-                return Container(
-                  child: snapshot.data!.listaPeliculas!.map(){
-                    //FALTA ESTO POR TOCAR.
-                  }
-                );
+                return  _buildPopularMoviesList(snapshot.data!);
             }else{
-              return const Center(child: Text('No data available'));
+              return const Center(child: Text('No hay datos disponibles.'));
             }
           },
         ),
-
-        /*child: FutureBuilder<PopularMovieResponse>(
-          future: pokemonList,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return ListView(
-                children: snapshot.data!.results!.map((pokemon) {
-                  return ListTile(
-                    title: Text(pokemon.name!),
-                  );
-                }).toList(),
-              );
-            } else if (snapshot.hasError) {
-              return Text('${snapshot.error}');
-            }
-
-            // By default, show a loading spinner.
-            return const CircularProgressIndicator();
-          },
-        ),*/
-
-
       ),
 
     );
@@ -86,8 +60,45 @@ class _MyWidgetState extends State<MoviesScreen> {
     if (response.statusCode == 200) {
       return PopularMovieResponse.fromJson(json.decode(response.body) as Map<String, dynamic>);
   }else{
-      throw Exception('Failed to load movies');
+      throw Exception('Fallo al cargar películas.');
     }
+  }
+
+  Widget _buildPopularMoviesList(PopularMovieResponse popularMovieResponse) {
+    return ListView.builder(
+        itemCount: popularMovieResponse.listaPeliculas!.length,
+        itemBuilder: (context, index) {
+          return
+            Center(
+              child: Card(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    ListTile(
+                      minTileHeight: 50,   
+                      leading:
+                        SizedBox(
+                          child: Image.network("https://image.tmdb.org/t/p/original/${popularMovieResponse.listaPeliculas![index].posterPath}",
+                            height: 100,
+                          fit: BoxFit.cover),
+                        ),  
+                      title: Text("${popularMovieResponse.listaPeliculas![index].title}", 
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      subtitle: Text("${popularMovieResponse.listaPeliculas![index].overview}", 
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 3,
+                      ),
+                    )
+                  ],
+                ),
+              )
+            );
+          
+    });
   }
 
 }

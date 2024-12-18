@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:menu_navegacion_principal/mainMenuScreen.dart';
-import 'package:menu_navegacion_principal/moviesScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +32,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MoviesScreen(),
+      home: const MainMenuScreeen(),
     );
   }
 }
